@@ -9,14 +9,14 @@
 </head>
 <body>
   <header>
-  <div class="header-content small">
-    <img src="https://cdn-icons-png.flaticon.com/512/3079/3079160.png" alt="Iconu llibros" class="icono">
-    <div>
-      <h1>Repositoriu de recursos pa docentes de llingua</h1>
-      <p>Gueta y accede a materiales útiles pa les tos clases</p>
+    <div class="header-content small">
+      <img src="https://cdn-icons-png.flaticon.com/512/3079/3079160.png" alt="Iconu llibros" class="icono">
+      <div>
+        <h1>Repositoriu de recursos pa docentes de llingua</h1>
+        <p>Gueta y accede a materiales útiles pa les tos clases</p>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
   <main>
     <input type="text" id="buscador" placeholder="🔍 Guetar por títulu o categoría...">
@@ -34,3 +34,46 @@
         </div>
       </div>
     </section>
+
+    <section>
+      <h2>📗 Comprensión llectora</h2>
+      <div class="contenedor-pdfs">
+        <div class="pdf-card" data-categoria="comprensión">
+          <a href="pdfs/lecturas_comprension.pdf" target="_blank">Llectures de comprensión</a>
+          <p>Testos curtios con entrugues adaptaes al nivel B1.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>📕 Actividaes por nivel</h2>
+      <div class="contenedor-pdfs">
+        <div class="pdf-card" data-categoria="nivel b1">
+          <a href="pdfs/actividades_b1.pdf" target="_blank">Actividaes nivel B1</a>
+          <p>Fiches y exercicios de refuerzu pal nivel B1.</p>
+        </div>
+        <div class="pdf-card" data-categoria="nivel a2">
+          <a href="pdfs/exercicios_a2.pdf" target="_blank">Exercicios nivel A2</a>
+          <p>Actividaes sencilles pa escolinos de nivel entamu.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Repositoriu creadu como sofitu al TFG de Pedagoxía | 2025
+  </footer>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    buscador.addEventListener('input', () => {
+      const filtro = buscador.value.toLowerCase();
+      document.querySelectorAll('.pdf-card').forEach(card => {
+        const texto = card.textContent.toLowerCase();
+        const categoria = card.dataset.categoria.toLowerCase();
+        card.style.display = (texto.includes(filtro) || categoria.includes(filtro)) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
