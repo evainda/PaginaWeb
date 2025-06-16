@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+  <meta charset="UTF-8">
+  <title>Repositorio de recursos para docentes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Repositorio de recursos para docentes de lingua</h1>
+  <input type="text" id="buscador" placeholder="Buscar documento...">
+  <ul id="listaPDFs">
+    <li><a href="pdfs/recursos_gramatica.pdf" target="_blank">Recursos de gramática</a></li>
+    <li><a href="pdfs/lecturas_comprension.pdf" target="_blank">Lecturas de comprensión</a></li>
+    <li><a href="pdfs/actividades_b1.pdf" target="_blank">Actividades nivel B1</a></li>
+    <!-- Puedes seguir añadiendo PDFs aquí -->
+  </ul>
+
+  <script>
+    const buscador = document.getElementById('buscador');
+    buscador.addEventListener('input', () => {
+      const filtro = buscador.value.toLowerCase();
+      document.querySelectorAll('#listaPDFs li').forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(filtro) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
