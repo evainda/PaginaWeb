@@ -5,33 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Repositorio Lingua</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>📚 Repositorio de recursos para docentes de lingua</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/3079/3079160.png" alt="Icono libros" class="icono">
+    <h1>Repositorio de recursos para docentes de lingua</h1>
     <p>Busca e accede a materiais útiles para as túas clases</p>
   </header>
 
   <main>
     <input type="text" id="buscador" placeholder="🔍 Buscar por título...">
-    <ul id="listaPDFs">
-      <li><a href="pdfs/recursos_gramatica.pdf" target="_blank">Recursos de gramática</a></li>
-      <li><a href="pdfs/lecturas_comprension.pdf" target="_blank">Lecturas de comprensión</a></li>
-      <li><a href="pdfs/actividades_b1.pdf" target="_blank">Actividades nivel B1</a></li>
-      <!-- Añade más -->
-    </ul>
+    <div class="contenedor-pdfs">
+      <div class="pdf-card"><a href="pdfs/recursos_gramatica.pdf" target="_blank">📘 Recursos de gramática</a></div>
+      <div class="pdf-card"><a href="pdfs/lecturas_comprension.pdf" target="_blank">📗 Lecturas de comprensión</a></div>
+      <div class="pdf-card"><a href="pdfs/actividades_b1.pdf" target="_blank">📕 Actividades nivel B1</a></div>
+    </div>
   </main>
 
   <footer>
-    <p>Repositorio creado como apoio ao TFG de Pedagoxía</p>
+    Repositorio creado como apoio ao TFG de Pedagoxía | 2025
   </footer>
 
   <script>
     const buscador = document.getElementById('buscador');
     buscador.addEventListener('input', () => {
       const filtro = buscador.value.toLowerCase();
-      document.querySelectorAll('#listaPDFs li').forEach(li => {
-        li.style.display = li.textContent.toLowerCase().includes(filtro) ? '' : 'none';
+      document.querySelectorAll('.pdf-card').forEach(card => {
+        card.style.display = card.textContent.toLowerCase().includes(filtro) ? '' : 'none';
       });
     });
   </script>
