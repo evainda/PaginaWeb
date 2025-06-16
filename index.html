@@ -9,18 +9,41 @@
 </head>
 <body>
   <header>
-    <img src="https://cdn-icons-png.flaticon.com/512/3079/3079160.png" alt="Icono libros" class="icono">
-    <h1>Repositorio de recursos para docentes de lingua</h1>
-    <p>Busca e accede a materiais útiles para as túas clases</p>
+    <div class="header-content">
+      <img src="https://cdn-icons-png.flaticon.com/512/3079/3079160.png" alt="Icono libros" class="icono">
+      <div>
+        <h1>Repositorio de recursos para docentes de lingua</h1>
+        <p>Busca e accede a materiais útiles para as túas clases</p>
+      </div>
+      <img src="https://cdn-icons-png.flaticon.com/512/2569/2569114.png" alt="Icono educación" class="icono">
+    </div>
   </header>
 
   <main>
-    <input type="text" id="buscador" placeholder="🔍 Buscar por título...">
-    <div class="contenedor-pdfs">
-      <div class="pdf-card"><a href="pdfs/recursos_gramatica.pdf" target="_blank">📘 Recursos de gramática</a></div>
-      <div class="pdf-card"><a href="pdfs/lecturas_comprension.pdf" target="_blank">📗 Lecturas de comprensión</a></div>
-      <div class="pdf-card"><a href="pdfs/actividades_b1.pdf" target="_blank">📕 Actividades nivel B1</a></div>
-    </div>
+    <input type="text" id="buscador" placeholder="🔍 Buscar por título ou categoría...">
+
+    <section>
+      <h2>📘 Gramática</h2>
+      <div class="contenedor-pdfs">
+        <div class="pdf-card" data-categoria="gramática"><a href="pdfs/recursos_gramatica.pdf" target="_blank">Recursos de gramática</a><p>Actividades e explicacións sobre estruturas gramaticais.</p></div>
+        <div class="pdf-card" data-categoria="gramática"><a href="pdfs/verbos_irregulares.pdf" target="_blank">Verbos irregulares</a><p>Lista e exercicios de verbos irregulares frecuentes.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>📗 Comprensión lectora</h2>
+      <div class="contenedor-pdfs">
+        <div class="pdf-card" data-categoria="comprensión"><a href="pdfs/lecturas_comprension.pdf" target="_blank">Lecturas de comprensión</a><p>Textos curtos con preguntas adaptadas a B1.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>📕 Actividades por nivel</h2>
+      <div class="contenedor-pdfs">
+        <div class="pdf-card" data-categoria="nivel b1"><a href="pdfs/actividades_b1.pdf" target="_blank">Actividades nivel B1</a><p>Fichas e exercicios para reforzo do nivel B1.</p></div>
+        <div class="pdf-card" data-categoria="nivel a2"><a href="pdfs/exercicios_a2.pdf" target="_blank">Exercicios nivel A2</a><p>Actividades sinxelas para alumnos en nivel inicial.</p></div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -32,7 +55,9 @@
     buscador.addEventListener('input', () => {
       const filtro = buscador.value.toLowerCase();
       document.querySelectorAll('.pdf-card').forEach(card => {
-        card.style.display = card.textContent.toLowerCase().includes(filtro) ? '' : 'none';
+        const texto = card.textContent.toLowerCase();
+        const categoria = card.dataset.categoria.toLowerCase();
+        card.style.display = (texto.includes(filtro) || categoria.includes(filtro)) ? '' : 'none';
       });
     });
   </script>
