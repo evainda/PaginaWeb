@@ -3,115 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Repositoriu Llingua</title>
+  <title>La Llingua Alluga</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="header-content small">
-      <img src="https://cdn-icons-png.flaticon.com/512/3079/3079160.png" alt="Iconu llibros" class="icono">
-      <div>
-        <h1>Repositoriu de recursos pa docentes de llingua</h1>
-        <p>Busca y accede a materiales útiles pa les tos clases</p>
-      </div>
+  <!-- Navegación principal -->
+  <nav class="menu-principal">
+    <ul>
+      <li><a href="index.html">La Llingua Alluga</a></li>
+      <li class="submenu">
+        <a href="#">Sobre'l proyectu</a>
+        <ul>
+          <li><a href="tfg.html">TFG</a></li>
+          <li><a href="autoria.html">Autoría</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="#">Repositoriu</a>
+        <ul>
+          <li><a href="bloques/bloque1.html">Bloque 1</a></li>
+          <li><a href="bloques/bloque2.html">Bloque 2</a></li>
+          <li><a href="bloques/bloque3.html">Bloque 3</a></li>
+          <li><a href="bloques/bloque4.html">Bloque 4</a></li>
+          <li><a href="bloques/bloque5.html">Bloque 5</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="#">Otros materiales</a>
+        <ul>
+          <li><a href="recursos.html">Recursos dixitales</a></li>
+          <li><a href="papers.html">Papers universitarios</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="colaboraciones.html">Colaboraciones</a>
+        <ul>
+          <li><a href="videos.html">Vídeos</a></li>
+          <li><a href="blogs.html">Otros blogs</a></li>
+          <li><a href="diccionarios.html">Diccionarios</a></li>
+          <li><a href="webs.html">Páxines web esternes</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Buscador -->
+  <div class="buscador">
+    <input type="text" id="search" placeholder="🔍 Guetar por títulu, bloque o autor/a...">
+  </div>
+
+  <!-- Contenido principal genérico -->
+  <main class="grid-recursos">
+    <div class="recurso">
+      <a href="pdfs/actividaes_fala.pdf" target="_blank">
+        <img src="img/pdf-icon.png" alt="Iconu PDF">
+        <p class="titulo">Actividaes pa practicar la fala</p>
+        <p class="autoria">Autora: María García</p>
+      </a>
     </div>
-  </header>
-
-  <main>
-    <input type="text" id="buscador" placeholder="🔍 Guetar por títulu o categoría...">
-
-    <!-- BLOQUE 1 -->
-    <section>
-      <h2>🗣 Comunicación oral (falar y escuchar)</h2>
-      <div class="contenedor-pdfs">
-        <div class="pdf-card" data-categoria="oral">
-          <a href="pdfs/actividaes_fala.pdf" target="_blank">Actividaes pa practicar la fala</a>
-          <p>Xuegos y diálogos pa trabayar la espresión oral.</p>
-        </div>
-        <div class="pdf-card" data-categoria="oral">
-          <a href="pdfs/escucha_comprension.pdf" target="_blank">Comprensión auditiva</a>
-          <p>Grabaciones con entrugues pa entendimientu oral.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOQUE 2 -->
-    <section>
-      <h2>📖 Comunicación escrita (lleer)</h2>
-      <div class="contenedor-pdfs">
-        <div class="pdf-card" data-categoria="lectura">
-          <a href="pdfs/llectures_b1.pdf" target="_blank">Llectures pa nivel B1</a>
-          <p>Testos curtios con entrugues de comprensión.</p>
-        </div>
-        <div class="pdf-card" data-categoria="lectura">
-          <a href="pdfs/textos_llargos.pdf" target="_blank">Testos llargos con vocabulariu</a>
-          <p>Actividaes pa reforzar la comprensión llectora.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOQUE 3 -->
-    <section>
-      <h2>✍️ Comunicación escrita (escribir)</h2>
-      <div class="contenedor-pdfs">
-        <div class="pdf-card" data-categoria="escritura">
-          <a href="pdfs/redacciones_guiades.pdf" target="_blank">Redacciones guíaes</a>
-          <p>Plantíes pa escribir cuentos, cartes y testos narrativos.</p>
-        </div>
-        <div class="pdf-card" data-categoria="escritura">
-          <a href="pdfs/ortografía_asturianu.pdf" target="_blank">Ortografía básica</a>
-          <p>Normes ortográfiques coles que reforzar la escritura.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOQUE 4 -->
-    <section>
-      <h2>🔤 Conocimientu de la llingua</h2>
-      <div class="contenedor-pdfs">
-        <div class="pdf-card" data-categoria="gramática">
-          <a href="pdfs/estructures_llingua.pdf" target="_blank">Estructures de la llingua</a>
-          <p>Actividaes sobre suxetos, verbios y sintaxis.</p>
-        </div>
-        <div class="pdf-card" data-categoria="gramática">
-          <a href="pdfs/verbios_irregulares.pdf" target="_blank">Verbios irregulares</a>
-          <p>Llista y exercicios de verbios que nun siguen les normes.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOQUE 5 -->
-    <section>
-      <h2>📚 Educación lliteraria</h2>
-      <div class="contenedor-pdfs">
-        <div class="pdf-card" data-categoria="lliteratura">
-          <a href="pdfs/poesía_asturiana.pdf" target="_blank">Poesía asturiana</a>
-          <p>Seleición de poemes curtios pa trabayar en clase.</p>
-        </div>
-        <div class="pdf-card" data-categoria="lliteratura">
-          <a href="pdfs/cuentos_tradicionales.pdf" target="_blank">Cuentos tradicionales</a>
-          <p>Llectura y analís de cuentos de tradición oral asturiana.</p>
-        </div>
-      </div>
-    </section>
-
+    <div class="recurso">
+      <a href="pdfs/llectures_b1.pdf" target="_blank">
+        <img src="img/pdf-icon.png" alt="Iconu PDF">
+        <p class="titulo">Llectures pa nivel B1</p>
+        <p class="autoria">Autor: Pablo Suárez</p>
+      </a>
+    </div>
+    <!-- Más bloques de recursos -->
   </main>
 
   <footer>
-    Repositoriu realizáu como soporte al TFG de Pedagoxía | Marina Berros González | 2025
+    <p>La Llingua Alluga | Proyecto TFG de Pedagoxía | Marina Berros González | 2025</p>
   </footer>
-
-  <script>
-    const buscador = document.getElementById('buscador');
-    buscador.addEventListener('input', () => {
-      const filtro = buscador.value.toLowerCase();
-      document.querySelectorAll('.pdf-card').forEach(card => {
-        const texto = card.textContent.toLowerCase();
-        const categoria = card.dataset.categoria.toLowerCase();
-        card.style.display = (texto.includes(filtro) || categoria.includes(filtro)) ? '' : 'none';
-      });
-    });
-  </script>
 </body>
 </html>
