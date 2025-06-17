@@ -509,3 +509,25 @@ footer p {
     margin-bottom: 1.5rem;
     color: var(--color-primario);
 }
+
+/* Estilos para el enlace del logo */
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-link:hover {
+    opacity: 0.9;
+}
+
+.logo-link h1 {
+    margin: 0;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover h1 {
+    transform: scale(1.05);
+}
