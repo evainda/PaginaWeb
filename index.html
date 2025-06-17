@@ -8,69 +8,73 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Navegación principal -->
-  <nav class="menu-principal">
-    <ul>
-      <li><a href="index.html">La Llingua Alluga</a></li>
-      <li class="submenu">
-        <a href="#">Sobre'l proyectu</a>
-        <ul>
-          <li><a href="tfg.html">TFG</a></li>
-          <li><a href="autoria.html">Autoría</a></li>
-        </ul>
-      </li>
-      <li class="submenu">
-        <a href="#">Repositoriu</a>
-        <ul>
-          <li><a href="bloques/bloque1.html">Bloque 1</a></li>
-          <li><a href="bloques/bloque2.html">Bloque 2</a></li>
-          <li><a href="bloques/bloque3.html">Bloque 3</a></li>
-          <li><a href="bloques/bloque4.html">Bloque 4</a></li>
-          <li><a href="bloques/bloque5.html">Bloque 5</a></li>
-        </ul>
-      </li>
-      <li class="submenu">
-        <a href="#">Otros materiales</a>
-        <ul>
-          <li><a href="recursos.html">Recursos dixitales</a></li>
-          <li><a href="papers.html">Papers universitarios</a></li>
-        </ul>
-      </li>
-      <li class="submenu">
-        <a href="colaboraciones.html">Colaboraciones</a>
-        <ul>
-          <li><a href="videos.html">Vídeos</a></li>
-          <li><a href="blogs.html">Otros blogs</a></li>
-          <li><a href="diccionarios.html">Diccionarios</a></li>
-          <li><a href="webs.html">Páxines web esternes</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+  <header class="cabecera">
+    <h1>La Llingua Alluga</h1>
+    <p>Un proyectu educativu pa visibilizar y compartir recursos n'asturianu</p>
+  </header>
 
-  <!-- Buscador -->
-  <div class="buscador">
-    <input type="text" id="search" placeholder="🔍 Guetar por títulu, bloque o autor/a...">
-  </div>
+  <main class="fila-principal">
+    <!-- Columna 1: Sobre el proyecto -->
+    <div class="columna">
+      <h2>📁 Sobre'l proyectu</h2>
+      <ul>
+        <li><a href="tfg.html">TFG</a></li>
+        <li><a href="autoria.html">Autoría</a></li>
+      </ul>
+    </div>
 
-  <!-- Contenido principal genérico -->
-  <main class="grid-recursos">
-    <div class="recurso">
-      <a href="pdfs/actividaes_fala.pdf" target="_blank">
-        <img src="img/pdf-icon.png" alt="Iconu PDF">
-        <p class="titulo">Actividaes pa practicar la fala</p>
-        <p class="autoria">Autora: María García</p>
-      </a>
+    <!-- Columna 2: Repositorio -->
+    <div class="columna">
+      <h2>📚 Repositoriu</h2>
+      <ul>
+        <li><a href="bloques/bloque1.html">Bloque 1</a></li>
+        <li><a href="bloques/bloque2.html">Bloque 2</a></li>
+        <li><a href="bloques/bloque3.html">Bloque 3</a></li>
+        <li><a href="bloques/bloque4.html">Bloque 4</a></li>
+        <li><a href="bloques/bloque5.html">Bloque 5</a></li>
+      </ul>
     </div>
-    <div class="recurso">
-      <a href="pdfs/llectures_b1.pdf" target="_blank">
-        <img src="img/pdf-icon.png" alt="Iconu PDF">
-        <p class="titulo">Llectures pa nivel B1</p>
-        <p class="autoria">Autor: Pablo Suárez</p>
-      </a>
+
+    <!-- Columna 3: Otros materiales -->
+    <div class="columna">
+      <h2>🔎 Otros materiales</h2>
+      <ul>
+        <li><a href="recursos.html">Recursos dixitales</a></li>
+        <li><a href="papers.html">Papers universitarios</a></li>
+      </ul>
     </div>
-    <!-- Más bloques de recursos -->
+
+    <!-- Columna 4: Colaboraciones -->
+    <div class="columna">
+      <h2>🤝 Colaboraciones</h2>
+      <ul>
+        <li><a href="videos.html">Vídeos</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="diccionarios.html">Diccionarios</a></li>
+        <li><a href="webs.html">Webs esternes</a></li>
+      </ul>
+    </div>
   </main>
+
+  <section class="zona-recursos">
+    <input type="text" id="search" placeholder="🔍 Guetar por títulu, bloque o autor/a...">
+    <div class="grid-recursos">
+      <div class="recurso">
+        <a href="pdfs/actividaes_fala.pdf" target="_blank">
+          <img src="img/pdf-icon.png" alt="Iconu PDF">
+          <p class="titulo">Actividaes pa practicar la fala</p>
+          <p class="autoria">Autora: María García</p>
+        </a>
+      </div>
+      <div class="recurso">
+        <a href="pdfs/llectures_b1.pdf" target="_blank">
+          <img src="img/pdf-icon.png" alt="Iconu PDF">
+          <p class="titulo">Llectures pa nivel B1</p>
+          <p class="autoria">Autor: Pablo Suárez</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <p>La Llingua Alluga | Proyecto TFG de Pedagoxía | Marina Berros González | 2025</p>
