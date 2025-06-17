@@ -1,122 +1,166 @@
-/* Base */
+/* Estilos generales */
 body {
-  margin: 0;
-  font-family: 'Nunito', sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
-h1, h2 {
-  margin: 0;
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-/* Cabecera */
-.cabecera {
-  background-color: #1e3d7a;
-  color: white;
-  text-align: center;
-  padding: 40px 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+h1 {
+    margin: 0;
+    font-size: 2.5em;
 }
 
 /* Buscador */
-.zona-buscador {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+.buscador {
+    margin: 20px auto;
+    max-width: 600px;
+    display: flex;
 }
 
-#search {
-  width: 80%;
-  max-width: 600px;
-  padding: 12px 16px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+.buscador input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px 0 0 4px;
 }
 
-/* Acordeones */
-.acordeones {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
+.buscador button {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.acordeon {
-  background-color: #fff;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  overflow: hidden;
-  transition: all 0.3s ease;
+.buscador button:hover {
+    background-color: #c0392b;
 }
 
-.acordeon-btn {
-  background-color: #eaf0fa;
-  color: #1e3d7a;
-  cursor: pointer;
-  padding: 15px 20px;
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-align: left;
-  transition: background-color 0.3s ease;
-  border-bottom: 1px solid #ccc;
+/* Menú principal */
+.menu-principal {
+    display: flex;
+    justify-content: center;
+    background-color: #34495e;
+    padding: 10px 0;
 }
 
-.acordeon-btn:hover {
-  background-color: #d8e5fb;
+.menu-item {
+    position: relative;
+    margin: 0 15px;
 }
 
-.acordeon-btn.activo {
-  background-color: #d1ddf6;
+.menu-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.acordeon-contenido {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  background-color: #fdfdfd;
-  padding: 0 20px;
+.menu-btn:hover {
+    background-color: #2c3e50;
 }
 
-.acordeon-contenido.open {
-  padding: 20px;
-  max-height: 500px;
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-.acordeon-contenido ul {
-  margin: 15px 0;
-  padding-left: 20px;
-  line-height: 1.6;
+.submenu a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
-.acordeon-contenido p {
-  margin-top: 15px;
-  color: #444;
+.submenu a:hover {
+    background-color: #f1f1f1;
 }
 
-.acordeon-contenido a {
-  color: #1e3d7a;
-  font-weight: bold;
-  text-decoration: none;
+.menu-item:hover .submenu {
+    display: block;
 }
 
-.acordeon-contenido a:hover {
-  text-decoration: underline;
+/* Contenido principal */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Footer */
+.destacados h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.documentos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.documento {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.documento:hover {
+    transform: translateY(-5px);
+}
+
+.documento img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+/* Pie de página */
 footer {
-  background-color: #1e3d7a;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  margin-top: 40px;
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-principal {
+        flex-direction: column;
+    }
+    
+    .menu-item {
+        margin: 5px 0;
+    }
+    
+    .submenu {
+        position: static;
+        width: 100%;
+    }
+    
+    .documentos {
+        grid-template-columns: 1fr 1fr;
+    }
 }
