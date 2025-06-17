@@ -66,6 +66,7 @@ h1, h2 {
   font-weight: bold;
   text-align: left;
   transition: background-color 0.3s ease;
+  border-bottom: 1px solid #ccc;
 }
 
 .acordeon-btn:hover {
@@ -84,9 +85,15 @@ h1, h2 {
   padding: 0 20px;
 }
 
+.acordeon-contenido.open {
+  padding: 20px;
+  max-height: 500px;
+}
+
 .acordeon-contenido ul {
   margin: 15px 0;
   padding-left: 20px;
+  line-height: 1.6;
 }
 
 .acordeon-contenido p {
