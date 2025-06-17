@@ -2,7 +2,7 @@
 <html lang="ast">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Llingua Alluga</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
@@ -13,71 +13,75 @@
     <p>Un proyectu educativu pa visibilizar y compartir recursos n'asturianu</p>
   </header>
 
-  <main class="fila-principal">
-    <!-- Columna 1: Sobre el proyecto -->
-    <div class="columna">
-      <h2>📁 Sobre'l proyectu</h2>
-      <ul>
-        <li><a href="tfg.html">TFG</a></li>
-        <li><a href="autoria.html">Autoría</a></li>
-      </ul>
+  <section class="zona-buscador">
+    <input type="text" id="search" placeholder="🔍 Guetar por títulu, bloque o autor/a...">
+  </section>
+
+  <main class="acordeones">
+    <div class="acordeon">
+      <button class="acordeon-btn">📁 Sobre'l proyectu</button>
+      <div class="acordeon-contenido">
+        <p>Esti proyectu forma parte del TFG de Marina Berros González.</p>
+        <ul>
+          <li><a href="tfg.html">Ver TFG</a></li>
+          <li><a href="autoria.html">Autoría</a></li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Columna 2: Repositorio -->
-    <div class="columna">
-      <h2>📚 Repositoriu</h2>
-      <ul>
-        <li><a href="bloques/bloque1.html">Bloque 1</a></li>
-        <li><a href="bloques/bloque2.html">Bloque 2</a></li>
-        <li><a href="bloques/bloque3.html">Bloque 3</a></li>
-        <li><a href="bloques/bloque4.html">Bloque 4</a></li>
-        <li><a href="bloques/bloque5.html">Bloque 5</a></li>
-      </ul>
+    <div class="acordeon">
+      <button class="acordeon-btn">📚 Repositoriu</button>
+      <div class="acordeon-contenido">
+        <ul>
+          <li><a href="bloques/bloque1.html">Bloque 1: Comunicación oral</a></li>
+          <li><a href="bloques/bloque2.html">Bloque 2: Comunicación escrita (lleer)</a></li>
+          <li><a href="bloques/bloque3.html">Bloque 3: Comunicación escrita (escribir)</a></li>
+          <li><a href="bloques/bloque4.html">Bloque 4: Conocimientu de la llingua</a></li>
+          <li><a href="bloques/bloque5.html">Bloque 5: Educación lliteraria</a></li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Columna 3: Otros materiales -->
-    <div class="columna">
-      <h2>🔎 Otros materiales</h2>
-      <ul>
-        <li><a href="recursos.html">Recursos dixitales</a></li>
-        <li><a href="papers.html">Papers universitarios</a></li>
-      </ul>
+    <div class="acordeon">
+      <button class="acordeon-btn">🔎 Otros materiales</button>
+      <div class="acordeon-contenido">
+        <ul>
+          <li><a href="recursos.html">Recursos dixitales</a></li>
+          <li><a href="papers.html">Papers universitarios</a></li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Columna 4: Colaboraciones -->
-    <div class="columna">
-      <h2>🤝 Colaboraciones</h2>
-      <ul>
-        <li><a href="videos.html">Vídeos</a></li>
-        <li><a href="blogs.html">Blogs</a></li>
-        <li><a href="diccionarios.html">Diccionarios</a></li>
-        <li><a href="webs.html">Webs esternes</a></li>
-      </ul>
+    <div class="acordeon">
+      <button class="acordeon-btn">🤝 Colaboraciones</button>
+      <div class="acordeon-contenido">
+        <ul>
+          <li><a href="videos.html">Vídeos</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="diccionarios.html">Diccionarios</a></li>
+          <li><a href="webs.html">Webs esternes</a></li>
+        </ul>
+      </div>
     </div>
   </main>
 
-  <section class="zona-recursos">
-    <input type="text" id="search" placeholder="🔍 Guetar por títulu, bloque o autor/a...">
-    <div class="grid-recursos">
-      <div class="recurso">
-        <a href="pdfs/actividaes_fala.pdf" target="_blank">
-          <img src="img/pdf-icon.png" alt="Iconu PDF">
-          <p class="titulo">Actividaes pa practicar la fala</p>
-          <p class="autoria">Autora: María García</p>
-        </a>
-      </div>
-      <div class="recurso">
-        <a href="pdfs/llectures_b1.pdf" target="_blank">
-          <img src="img/pdf-icon.png" alt="Iconu PDF">
-          <p class="titulo">Llectures pa nivel B1</p>
-          <p class="autoria">Autor: Pablo Suárez</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <footer>
-    <p>La Llingua Alluga | Proyecto TFG de Pedagoxía | Marina Berros González | 2025</p>
+    <p>La Llingua Alluga | TFG de Pedagoxía | Marina Berros González | 2025</p>
   </footer>
+
+  <script>
+    const acordeones = document.querySelectorAll(".acordeon-btn");
+    acordeones.forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("activo");
+        const contenido = btn.nextElementSibling;
+        if (contenido.style.maxHeight) {
+          contenido.style.maxHeight = null;
+        } else {
+          contenido.style.maxHeight = contenido.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
