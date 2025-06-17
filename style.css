@@ -13,20 +13,24 @@ h1, h2 {
 ul {
   list-style: none;
   padding: 0;
+  transition: all 0.3s ease;
 }
 
 ul li {
   margin-bottom: 8px;
+  transition: all 0.3s ease;
 }
 
 ul li a {
   text-decoration: none;
   color: #1e3d7a;
   font-weight: bold;
+  transition: color 0.2s ease;
 }
 
 ul li a:hover {
   text-decoration: underline;
+  color: #003366;
 }
 
 /* Cabecera */
@@ -35,6 +39,7 @@ ul li a:hover {
   color: white;
   text-align: center;
   padding: 30px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* Fila horizontal con columnas */
@@ -45,6 +50,7 @@ ul li a:hover {
   padding: 30px;
   background-color: #ffffff;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
 .columna {
@@ -53,7 +59,13 @@ ul li a:hover {
   background-color: #f0f4ff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.columna:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .columna h2 {
