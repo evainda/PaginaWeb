@@ -1,38 +1,52 @@
-// Base de datos de PDFs organizados por bloques
+// Base de datos de documentos
 const pdfsPorBloque = {
     bloque1: [
-        { nombre: 'Gramática del Bable', archivo: 'gramatica_bable.pdf' },
-        { nombre: 'Historia de la Llingua', archivo: 'historia_llingua.pdf' }
+        {
+            nombre: "Gramática Básica",
+            archivo: "gramatica_basica.pdf",
+            descripcion: "Normes gramaticales fundamentales del asturianu"
+        },
+        {
+            nombre: "Historia de la Llingua",
+            archivo: "historia_llingua.pdf",
+            descripcion: "Evolución histórica del idioma asturianu"
+        }
     ],
     bloque2: [
-        { nombre: 'Literatura Asturiana', archivo: 'literatura_asturiana.pdf' },
-        { nombre: 'Autores Contemporáneos', archivo: 'autores_contemporaneos.pdf' }
+        {
+            nombre: "Antoloxía Lliteraria",
+            archivo: "antoloxia_literaria.pdf",
+            descripcion: "Recopilación d'obres lliteraries asturianes"
+        }
     ],
     bloque3: [
-        { nombre: 'Dialectos Regionales', archivo: 'dialectos_regionales.pdf' }
+        {
+            nombre: "Dialectos del Occidente",
+            archivo: "dialectos_occidente.pdf",
+            descripcion: "Estudiu de les variedaes occidentales"
+        }
     ],
     bloque4: [
-        { nombre: 'Ensayos Lingüísticos', archivo: 'ensayos_linguisticos.pdf' }
-    ],
-    otros: [
-        { nombre: 'Autoria', archivo: 'autoria.pdf' },
-        { nombre: 'Aitoria', archivo: 'aitoria.pdf' }
+        {
+            nombre: "Ensayos Lingüísticos",
+            archivo: "ensayos_linguisticos.pdf",
+            descripcion: "Analís de la llingua asturiana"
+        }
     ]
 };
 
-// Función de búsqueda mejorada
+// Función de búsqueda
 function buscarPDF() {
     const termino = document.getElementById('busqueda').value.toLowerCase();
-    let resultados = [];
+    const resultados = [];
     
-    // Buscar en todos los bloques
     for (const bloque in pdfsPorBloque) {
         pdfsPorBloque[bloque].forEach(pdf => {
             if (pdf.nombre.toLowerCase().includes(termino) || 
-                pdf.archivo.toLowerCase().includes(termino)) {
+                pdf.descripcion.toLowerCase().includes(termino)) {
                 resultados.push({
                     ...pdf,
-                    bloque: bloque.replace('bloque', 'Bloque ') || 'Otros materiales'
+                    bloque: bloque.replace('bloque', 'Bloque ')
                 });
             }
         });
@@ -42,40 +56,92 @@ function buscarPDF() {
 }
 
 function mostrarResultados(resultados) {
-    const contenedorResultados = document.getElementById('resultados-busqueda');
-    contenedorResultados.innerHTML = '';
+    const contenedor = document.getElementById('resultados-busqueda');
+    contenedor.innerHTML = '';
     
     if (resultados.length === 0) {
-        contenedorResultados.innerHTML = '<p>Nun s\'atoparon documentos que coincidan cola to busca.</p>';
+        contenedor.innerHTML = `
+            <div class="sin-resultados">
+                <p>Nun s'atoparon documentos</p>
+            </div>
+        `;
         return;
     }
     
-    const html = resultados.map(pdf => `
-        <div class="resultado-pdf">
-            <img src="img/pdf-icon.png" alt="PDF">
-            <div class="info-pdf">
-                <h3>${pdf.nombre}</h3>
-                <p>Bloque: ${pdf.bloque}</p>
-                <a href="pdfs/${pdf.bloque.toLowerCase().replace(' ', '')}/${pdf.archivo}" target="_blank">Abrir PDF</a>
-            </div>
-        </div>
-    `).join('');
-    
-    contenedorResultados.innerHTML = html;
+    resultados.forEach(pdf => {
+        const div = document.createElement('div');
+        div.className = 'resultado';
+        div.innerHTML = `
+            <h3>${pdf.nombre}</h3>
+            <p>${pdf.descripcion}</p>
+            <span class="etiqueta-bloque">${pdf.bloque}</span>
+            <a href="pdfs/${pdf.bloque.toLowerCase()}/${pdf.archivo}" target="_blank">Ver</a>
+        `;
+        contenedor.appendChild(div);
+    });
 }
 
-// Cargar PDFs por bloque al entrar a cada página
+// Cargar PDFs por bloque
 function cargarPDFsBloque(bloque) {
-    const pdfs = pdfsPorBloque[bloque] || [];
     const contenedor = document.getElementById('pdfs-bloque');
-    
     if (!contenedor) return;
     
-    contenedor.innerHTML = pdfs.map(pdf => `
-        <div class="documento">
+    const pdfs = pdfsPorBloque[bloque] || [];
+    contenedor.innerHTML = '';
+    
+    pdfs.forEach(pdf => {
+        const div = document.createElement('div');
+        div.className = 'documento-bloque';
+        div.innerHTML = `
             <img src="../img/pdf-icon.png" alt="PDF">
-            <p>${pdf.nombre}</p>
-            <a href="../pdfs/${bloque}/${pdf.archivo}" target="_blank">Ver</a>
+            <div>
+                <h3>${pdf.nombre}</h3>
+                <p>${pdf.descripcion}</p>
+                <a href="../pdfs/${bloque}/${pdf.archivo}" target="_blank">Abrir PDF</a>
+            </div>
+        `;
+        contenedor.appendChild(div);
+    });
+}
+
+// Cargar destacados en inicio
+function cargarDestacados() {
+    const contenedor = document.getElementById('documentos-destacados');
+    if (!contenedor) return;
+    
+    let destacados = [];
+    for (const bloque in pdfsPorBloque) {
+        if (pdfsPorBloque[bloque].length > 0) {
+            destacados.push(pdfsPorBloque[bloque][0]);
+        }
+    }
+    
+    contenedor.innerHTML = destacados.map(pdf => `
+        <div class="documento-destacado">
+            <img src="img/pdf-icon.png" alt="PDF">
+            <h3>${pdf.nombre}</h3>
+            <p>${pdf.descripcion}</p>
+            <a href="pdfs/bloque${Object.keys(pdfsPorBloque).indexOf(pdf.bloque)+1}/${pdf.archivo}" target="_blank">Ver</a>
         </div>
     `).join('');
 }
+
+// Inicialización
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+        cargarDestacados();
+    }
+    
+    // Menús desplegables
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (e.target.classList.contains('menu-btn')) {
+                const submenu = this.querySelector('.submenu');
+                document.querySelectorAll('.submenu').forEach(sm => {
+                    if (sm !== submenu) sm.style.display = 'none';
+                });
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+            }
+        });
+    });
+});
