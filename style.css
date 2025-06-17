@@ -1,100 +1,119 @@
+/* Estilo base */
 body {
   margin: 0;
   font-family: 'Nunito', sans-serif;
-  background-color: #f0f4f8;
+  background-color: #f4f6f8;
   color: #333;
 }
 
-header {
-  background-color: #1e3d7a;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
+h1, h2 {
+  margin: 0 0 10px;
 }
 
-.header-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-.icono {
-  width: 60px;
-  height: 60px;
+ul li {
+  margin-bottom: 8px;
 }
 
-h1 {
-  margin: 0;
-  font-size: 2em;
-}
-
-main {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-input#buscador {
-  width: 100%;
-  padding: 15px;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  margin-bottom: 40px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-section {
-  margin-bottom: 50px;
-}
-
-h2 {
-  color: #1e3d7a;
-  margin-bottom: 15px;
-  border-left: 5px solid #1e3d7a;
-  padding-left: 10px;
-}
-
-.contenedor-pdfs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.pdf-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.pdf-card:hover {
-  transform: translateY(-5px);
-}
-
-.pdf-card a {
+ul li a {
   text-decoration: none;
   color: #1e3d7a;
   font-weight: bold;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Cabecera */
+.cabecera {
+  background-color: #1e3d7a;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+/* Fila de secciones principales */
+.fila-principal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.columna {
+  flex: 1 1 200px;
+  margin: 10px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.columna h2 {
   font-size: 1.1em;
-  display: block;
+  color: #1e3d7a;
   margin-bottom: 10px;
 }
 
-.pdf-card p {
-  font-size: 0.95em;
-  margin: 0;
+/* Zona de recursos */
+.zona-recursos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+#search {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.grid-recursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.recurso {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.recurso img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.titulo {
+  font-weight: bold;
+  color: #1e3d7a;
+  margin-bottom: 5px;
+}
+
+.autoria {
+  font-size: 0.9em;
   color: #555;
 }
 
+/* Footer */
 footer {
   background-color: #1e3d7a;
   color: white;
   text-align: center;
   padding: 15px;
+  margin-top: 40px;
   font-size: 0.9em;
-  margin-top: 60px;
 }
