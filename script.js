@@ -1,58 +1,48 @@
 // Base de datos de documentos
-const pdfsPorBloque = {
-    bloque1: [
-        {
-            nombre: "Gramática Básica",
-            archivo: "gramatica_basica.pdf",
-            descripcion: "Normes gramaticales fundamentales del asturianu"
-        },
-        {
-            nombre: "Historia de la Llingua",
-            archivo: "historia_llingua.pdf",
-            descripcion: "Evolución histórica del idioma asturianu"
-        }
-    ],
-    bloque2: [
-        {
-            nombre: "Antoloxía Lliteraria",
-            archivo: "antoloxia_literaria.pdf",
-            descripcion: "Recopilación d'obres lliteraries asturianes"
-        }
-    ],
-    bloque3: [
-        {
-            nombre: "Dialectos del Occidente",
-            archivo: "dialectos_occidente.pdf",
-            descripcion: "Estudiu de les variedaes occidentales"
-        }
-    ],
-    bloque4: [
-        {
-            nombre: "Ensayos Lingüísticos",
-            archivo: "ensayos_linguisticos.pdf",
-            descripcion: "Analís de la llingua asturiana"
-        }
-    ]
-};
+// Datos de los PDFs (solo los que mencionaste)
+const pdfs = [
+    {
+        nombre: "Xuegu animales espresión oral",
+        archivo: "XUEGU_ANIMALES_ESPERSION_ORAL.pdf",
+        bloque: "bloque1"
+    },
+    {
+        nombre: "Madreñes - Comprensión y espresión escrita",
+        archivo: "Madrenes_Comprension_espresion_escrita.pdf",
+        bloque: "bloque3"
+    }
+];
 
-// Función de búsqueda
+// Función de búsqueda super simple
 function buscarPDF() {
     const termino = document.getElementById('busqueda').value.toLowerCase();
-    const resultados = [];
+    const resultados = pdfs.filter(pdf => pdf.nombre.toLowerCase().includes(termino));
     
-    for (const bloque in pdfsPorBloque) {
-        pdfsPorBloque[bloque].forEach(pdf => {
-            if (pdf.nombre.toLowerCase().includes(termino) || 
-                pdf.descripcion.toLowerCase().includes(termino)) {
-                resultados.push({
-                    ...pdf,
-                    bloque: bloque.replace('bloque', 'Bloque ')
-                });
-            }
-        });
+    const contenedor = document.getElementById('resultados-busqueda');
+    contenedor.innerHTML = resultados.map(pdf => `
+        <div class="pdf-item">
+            <p>${pdf.nombre}</p>
+            <a href="pdfs/${pdf.bloque}/${pdf.archivo}" target="_blank">Abrir</a>
+            <a href="pdfs/${pdf.bloque}/${pdf.archivo}" download>Descargar</a>
+        </div>
+    `).join('');
+    
+    if (resultados.length === 0) {
+        contenedor.innerHTML = '<p>No se encontraron resultados</p>';
     }
+}
+
+// Cargar PDFs por bloque (sencillo)
+function cargarBloque(bloque) {
+    const contenedor = document.getElementById('pdfs-bloque');
+    const documentos = pdfs.filter(pdf => pdf.bloque === bloque);
     
-    mostrarResultados(resultados);
+    contenedor.innerHTML = documentos.map(pdf => `
+        <div class="pdf-item">
+            <p>${pdf.nombre}</p>
+            <a href="../pdfs/${bloque}/${pdf.archivo}" target="_blank">Abrir</a>
+        </div>
+    `).join('');
 }
 
 function mostrarResultados(resultados) {
